@@ -8,13 +8,15 @@ import org.scalatestplus.junit.JUnitRunner
 object AnalysTest {
   val dir = "/home/misha/" //Documents/Диплом/Интернет/Базы изображений/PIC/Новая папка/"
   val time: Long = System.nanoTime()
+
   def printlnTime(s: String): Unit = {
-    println(s + " " +  (System.nanoTime()-time)/1e6.toInt + " ms")
+    println(s + " " + (System.nanoTime() - time) / 1e6.toInt + " ms")
   }
+
   /** vessels accentuation test (0 until 180 by 10 degree) */
   def vesselSegmentTest(): Unit = {
-    val fileName = dir+"2.jpg"
-    val img = image.Operation.scale(Input.getImage(fileName), 1) 
+    val fileName = dir + "2.jpg"
+    val img = image.Operation.scale(Input.getImage(fileName), 1)
     printlnTime("scale succesful")
     val invImg = preprocessing.Filtr.fullInverse(img)
     printlnTime("fullInverse succesful")
@@ -28,10 +30,10 @@ object AnalysTest {
     val gab = new wavelets.Gabor // a = 1
     //(new wavelets.OldAsVessel).specTransform(updImg, 2.2) // a=2.2
     //accentuation.Vessel.accent(updImg, r, s, "MAX") // r from 4 to 6 is norm
-    
+
     for (s <- 2 to 2) { //; r <- 2 to 16 by 4) {
       try {
-       // val res = image.Transform.cwt(morle, a=1.5, 1, updImg)
+        // val res = image.Transform.cwt(morle, a=1.5, 1, updImg)
         val res = accentuation.Vessel.accent(updImg, 5, s, "MAX")
         Output.visible(res._1, "WT")
         printlnTime("WT succesful")
@@ -46,7 +48,7 @@ object AnalysTest {
         val sum = gis.sum - gis(255) - gis(0)
         var locSum = 0
         var i = 254
-        while (i>0 && locSum < 0.3*sum){
+        while (i > 0 && locSum < 0.3 * sum) {
           locSum += gis(i)
           i -= 1
         }
@@ -56,12 +58,12 @@ object AnalysTest {
       } catch {
         case e: Exception => {}
       }
-    }    
+    }
   }
-  
+
   /** disk accentuation test */
   def diskTest(): Unit = {
-    val fileName = dir+"126.jpg"
+    val fileName = dir + "126.jpg"
     val img = image.Input.getImage(fileName)
     val res = accentuation.Disk.accent(img, r = 8)
     image.Output.visible(res, "Disc Test")
