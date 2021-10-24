@@ -13,7 +13,7 @@ object Analys {
     val m = mat.length; val n = mat(0).length
     def isWhite(x: Int): Boolean = (x == 255)
     var S = 0
-    def analysSmallFilter(i: Int, j: Int, delete: B = false) {
+    def analysSmallFilter(i: Int, j: Int, delete: B = false): Unit = {
         var centralX = j
         var dy = 0
         while (i+dy >= 0 && isWhite(mat(i+dy)(centralX))) {
@@ -160,7 +160,7 @@ object Analys {
     medRes
   }
   
-  def mediate(directly: MInt, matToUpdate: MInt) {
+  def mediate(directly: MInt, matToUpdate: MInt): Unit = {
     val m = directly.length; val n = directly(0).length
     val mediateMat = createMBool(m, n)
     for (y <- 0 until m; x <- 0 until n)

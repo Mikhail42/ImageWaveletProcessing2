@@ -1,17 +1,14 @@
 package tests
 
-import basic.Basic._
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import math._ 
-import image._
+import org.scalatestplus.junit.JUnitRunner
       
 @RunWith(classOf[JUnitRunner])
 object CWTTest {
 
   val dir = "/home/misha/"
       
-  def cwtTests {
+  def cwtTests(): Unit = {
     import wavelets._
     val filename = dir + "01_dr.jpg"
     val img = image.Input.getImage(filename)

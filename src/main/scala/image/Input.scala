@@ -1,15 +1,16 @@
 package image
 
+import basic.Basic._
+
+import java.awt.Color
+import java.awt.image._
 import java.io.File
 import javax.imageio.ImageIO
-import java.awt.image._
-
-import basic.Basic._
 
 object Input {
   val format = "jpg"
-  val imgType = BufferedImage.TYPE_INT_RGB 
-  val imgColor = java.awt.Color.BLACK
+  val imgType: Int = BufferedImage.TYPE_INT_RGB
+  val imgColor: Color = java.awt.Color.BLACK
   
  /**
   * @param name  name of file
@@ -22,13 +23,15 @@ object Input {
   }
   
   def getTifImage(name: String): BI = {
-    import com.sun.media.jai.codec._
-    import java.awt.image.renderable.ParameterBlock
-    import javax.media.jai._
-    val stream = new FileSeekableStream(name)
-    val decodeParam = new TIFFDecodeParam(){this.setDecodePaletteAsShorts(true)}
-    val params = new ParameterBlock() {this.add(stream)}
-    JAI.create("tiff", params).getAsBufferedImage
+    // TODO: need to fix
+    // import com.sun.media.jai.codec._
+    // import java.awt.image.renderable.ParameterBlock
+    // import javax.media.jai._
+    // val stream = new FileSeekableStream(name)
+    // val decodeParam = new TIFFDecodeParam(){this.setDecodePaletteAsShorts(true)}
+    // val params = new ParameterBlock() {this.add(stream)}
+    // JAI.create("tiff", params).getAsBufferedImage
+    ImageIO.read(new File(name))
   }
   
  /**
@@ -63,7 +66,7 @@ object Input {
     res
   }
   
-  def getColorsComponents(img: BI, cb: T, cg: T, cr: T) = {
+  def getColorsComponents(img: BI, cb: T, cg: T, cr: T): Array[Array[Int]] = {
     val n = img.getWidth; val m = img.getHeight
     val res = createMInt(m, n)
     for (y <- 0 until m; x <- 0 until n) {

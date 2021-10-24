@@ -1,20 +1,18 @@
 package tests
 
-import basic.Basic._
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import math._ 
 import image._
+import org.junit.runner.RunWith
+import org.scalatestplus.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 object AnalysTest {
   val dir = "/home/misha/" //Documents/Диплом/Интернет/Базы изображений/PIC/Новая папка/"
-  val time = System.nanoTime()
-  def printlnTime(s: String) = {
+  val time: Long = System.nanoTime()
+  def printlnTime(s: String): Unit = {
     println(s + " " +  (System.nanoTime()-time)/1e6.toInt + " ms")
   }
   /** vessels accentuation test (0 until 180 by 10 degree) */
-  def vesselSegmentTest {
+  def vesselSegmentTest(): Unit = {
     val fileName = dir+"2.jpg"
     val img = image.Operation.scale(Input.getImage(fileName), 1) 
     printlnTime("scale succesful")
@@ -62,7 +60,7 @@ object AnalysTest {
   }
   
   /** disk accentuation test */
-  def diskTest{
+  def diskTest(): Unit = {
     val fileName = dir+"126.jpg"
     val img = image.Input.getImage(fileName)
     val res = accentuation.Disk.accent(img, r = 8)

@@ -3,34 +3,35 @@ package tests
 import basic.Integral
 import basic.Basic._
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import math._ 
+import org.scalatestplus.junit.JUnitRunner
+
+import math._
 
 @RunWith(classOf[JUnitRunner])
 object AllTest {
-  def assertEquals(x: T, y: T, eps: T) = 
+  def assertEquals(x: T, y: T, eps: T): Unit =
     assert{ abs(x-y) < eps }
   
-  def mathTest {
-    integralTests
-    mathToolKitTests
-    constantTest
+  def mathTest(): Unit = {
+    integralTests()
+    mathToolKitTests()
+    constantTest()
   }
   
-  def constantTest {
+  def constantTest(): Unit ={
     assertEquals( basic.Constants.sins(30), 0.5, 1e-6)
     assertEquals( basic.Constants.coss(60), 0.5, 1e-6)
     assertEquals( basic.Constants.coss(90), 0, 1e-6)
   }
   
-  def integralTests{
+  def integralTests(): Unit = {
     assert (Integral.getN(0, 2, 0.1)  == 21)
     assert (abs(Integral.simpson(sin, 0, Pi, 0.01) - 2) < 1e-4)
     def fun(x: T, y: T) = sin(x) * sin(y)
     assertEquals( Integral.simpson2(fun, (0, 0), (Pi, Pi), 0.01),  4, 1e-4)
   }
     
-  def mathToolKitTests {
+  def mathToolKitTests(): Unit = {
     import basic.Statistic._
     import basic.Decompose._
     val mat1: M = Array(Array(1, 2), Array(3, 4))

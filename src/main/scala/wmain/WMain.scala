@@ -1,13 +1,8 @@
-package main
-
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import basic.Basic._
-import image._
+package wmain
 
 object WMain {
-  def main(args: Array[String]) {
-    def time[R](block: => R) {
+  def main(args: Array[String]): Unit = {
+    def time[R](block: => R): Unit = {
       val t0 = System.nanoTime()
       val result = block    // call-by-name
       val t1 = System.nanoTime()
@@ -15,7 +10,7 @@ object WMain {
     }
     //val res = preprocessing.DilateErose.dilateErose(image.Input.getImage("/home/misha/6-1-5.jpg"))
     //image.Output.visible(res, "tit")
-    time {tests.AnalysTest.vesselSegmentTest }
+    time {tests.AnalysTest.vesselSegmentTest() }
     
   }
 }

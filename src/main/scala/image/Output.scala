@@ -21,7 +21,7 @@ object Output {
     saveImage(Operation.toColorMInt(mat), fileName, format, imgType)
     
   /** visualization image through frame */
-  def visible(image: BufferedImage, title: String) {
+  def visible(image: BufferedImage, title: String): Unit = {
     val frame = new JFrame()
     val icon  = new ImageIcon(image)
     val label = new JLabel(icon)
@@ -33,7 +33,7 @@ object Output {
     frame.setDefaultCloseOperation( WindowConstants.DISPOSE_ON_CLOSE )
   }
   
-  def visualisationAndSaveMat(mat: M, frameName: String, fileName: String) {
+  def visualisationAndSaveMat(mat: M, frameName: String, fileName: String): Unit = {
       val gRes = Operation.toColorMInt(mat)
       val grayImg = Operation.createImage(gRes, Input.imgType)
       Output.visible(grayImg, frameName)

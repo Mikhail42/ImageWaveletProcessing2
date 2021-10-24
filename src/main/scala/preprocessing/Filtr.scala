@@ -102,12 +102,12 @@ object Filtr {
     image.Operation.createImage(resG, img.getType)
   }
   
-  def inverse(mat: MInt) {
+  def inverse(mat: MInt): Unit = {
     val m = mat.length; val n = mat(0).length
     for (i <- 0 until m; j<- 0 until n) 
       mat(i)(j) = 255 - mat(i)(j)
   }
-  def inverse(mat: M) {
+  def inverse(mat: M): Unit = {
     val m = mat.length; val n = mat(0).length
     for (i <- 0 until m; j<- 0 until n) 
       mat(i)(j) = 255 - mat(i)(j)
@@ -124,7 +124,7 @@ object Filtr {
   }
   
   /** x => 255*(x-l)/(h-l) */
-  def constrast(mat: MInt, h: Int, l: Int) {
+  def constrast(mat: MInt, h: Int, l: Int): Unit = {
     val m = mat.length; val n = mat(0).length
     def toNew(x: Int) =  
       if (x > h) 255 else if (x < l) 0 else 255*(x-l)/(h-l)
@@ -133,7 +133,7 @@ object Filtr {
   }
   
   /** x => 255*(x-l)/(h-l) */
-  def constrast(img: BI, h: Int = 200, l: Int = 50) {
+  def constrast(img: BI, h: Int = 200, l: Int = 50): Unit = {
     val m = img.getHeight; val n = img.getWidth
     def toNew(x: Int) =  
       if (x > h) 255 else if (x < l) 0 else 255*(x-l)/(h-l)
@@ -147,7 +147,7 @@ object Filtr {
     }
   }
   
-  def adaptivContrast(mat: MInt) {
+  def adaptivContrast(mat: MInt): Unit = {
     val mx = maxM(mat); val mn = minM(mat)
     val m = mat.length; val n = mat(0).length
     def toNew(x: Int) =  
@@ -155,7 +155,7 @@ object Filtr {
     for (i <- 0 until m; j <- 0 until n)
       mat(i)(j) = toNew(mat(i)(j))
   }
-  def adaptivContrast(mat: M) {
+  def adaptivContrast(mat: M): Unit = {
     val mx = maxM(mat); val mn = minM(mat)
     val m = mat.length; val n = mat(0).length
     def toNew(x: T): T =  

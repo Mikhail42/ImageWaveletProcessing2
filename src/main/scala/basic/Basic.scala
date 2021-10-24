@@ -57,7 +57,7 @@ object Basic {
   type ISInt = IndexedSeq[Int]
   def createA(n: Int) = new A(n)
   def createAInt(n: Int) = new AInt(n)
-  def printAr(ar: A) {
+  def printAr(ar: A): Unit = {
     for (x <- ar) printf(s"$x ")
     println
   }
@@ -79,7 +79,7 @@ object Basic {
   def productSize(mat: M): Int = mat.length*mat(0).length
   def createM(m: Int, n: Int) = Array.ofDim[T](m, n)
   def createMBool(m: Int, n: Int) = Array.ofDim[B](m, n)
-  def print(mat: M) {
+  def print(mat: M): Unit = {
     for (str <- mat) {
       for (x <- str) printf("%3.4f ", x)
       println
@@ -95,7 +95,7 @@ object Basic {
   def map(mat: MInt, fun: Int => T): M = 
     mat.map{_.map{ x => fun(x) }}
   
-  def printMat(mat: M) {
+  def printMat(mat: M): Unit = {
     for (str <- mat) printAr(str)
     println
   }

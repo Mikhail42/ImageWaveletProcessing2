@@ -1,28 +1,29 @@
 package tests
 
 import basic.Basic._
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import math._ 
-import image.Transform._
 import image.Output._
+import image.Transform._
+import org.junit.runner.RunWith
+import org.scalatestplus.junit.JUnitRunner
+
+import scala.math._
 
 @RunWith(classOf[JUnitRunner])
 object DWTTest {
   
   val dir = "/home/misha/"
  
-  def assertEquals(x: T, y: T, eps: T) = 
+  def assertEquals(x: T, y: T, eps: T): Unit =
     assert{ abs(x-y) < eps }
     
-  def dwtTests{
-    Daubechies1DTest
-    Daubechies2DTest
-    DaubechiesFullImageTest
-    DaubechiesForwardImageTest
+  def dwtTests(): Unit = {
+    Daubechies1DTest()
+    Daubechies2DTest()
+    DaubechiesFullImageTest()
+    DaubechiesForwardImageTest()
   }
   
-  def Daubechies1DTest{
+  def Daubechies1DTest(): Unit = {
     val n = 250
     val ar: A = new A(n)
     for (i <- 0 until n) ar(i) = i
@@ -36,7 +37,7 @@ object DWTTest {
     }
   }
   
-  def Daubechies2DTest{
+  def Daubechies2DTest(): Unit = {
     val mat: M = Array(
         Array(1, 2, 3, 20, 25),
         Array(4, 5, 6, 20, 26),
@@ -56,9 +57,9 @@ object DWTTest {
     }
   }
   
-  def DaubechiesFullImageTest{
-    import transform.DTransform._
+  def DaubechiesFullImageTest(): Unit = {
     import image.Input._
+    import transform.DTransform._
     val inpName = dir + "1.jpg"
     val img: BI = getImage(inpName)
     val mat = getColorsComponents(img, 2).map{_.map{_.toDouble}}
@@ -71,14 +72,14 @@ object DWTTest {
     }
   } 
   
-  def DaubechiesForwardImageTest {
+  def DaubechiesForwardImageTest(): Unit = {
     val inpName = dir + "1.jpg"
     val img = image.Input.getImage(inpName)
     val resImg: BI = DaubechiesForwardImage(img, order = 1, "mat")
     visible(resImg, "Daubechies Forward Image Test")
   }
   
-  def DaubechiesForwardImageWithRotateTest {
+  def DaubechiesForwardImageWithRotateTest(): Unit = {
     val inpName = dir + "1.jpg"
     val img = image.Input.getImage(inpName)
     val (imgTr, imgTheta)  = 
