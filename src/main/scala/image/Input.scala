@@ -23,15 +23,13 @@ object Input {
   }
 
   def getTifImage(name: String): BI = {
-    // TODO: need to fix
-    // import com.sun.media.jai.codec._
-    // import java.awt.image.renderable.ParameterBlock
-    // import javax.media.jai._
-    // val stream = new FileSeekableStream(name)
-    // val decodeParam = new TIFFDecodeParam(){this.setDecodePaletteAsShorts(true)}
-    // val params = new ParameterBlock() {this.add(stream)}
-    // JAI.create("tiff", params).getAsBufferedImage
-    ImageIO.read(new File(name))
+    import com.sun.media.jai.codec._
+    import java.awt.image.renderable.ParameterBlock
+    import javax.media.jai._
+    val stream = new FileSeekableStream(name)
+    val decodeParam = new TIFFDecodeParam(){this.setDecodePaletteAsShorts(true)}
+    val params = new ParameterBlock() {this.add(stream)}
+    JAI.create("tiff", params).getAsBufferedImage
   }
 
   /**
