@@ -1,7 +1,8 @@
 package basic
 
-import math._
 import basic.Basic._
+
+import scala.math._
 
 /** some math methods
  *  @author Ionkin Mikhail 

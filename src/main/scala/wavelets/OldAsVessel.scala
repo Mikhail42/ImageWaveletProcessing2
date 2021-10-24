@@ -1,7 +1,8 @@
 package wavelets
 
-import math._
 import basic.Basic._
+
+import scala.math._
 
 class OldAsVessel(s0: Int = 5) {
   

@@ -1,11 +1,12 @@
 package image
 
+import basic.Basic._
+
 import java.awt._
+import java.awt.image._
 import java.io.File
 import javax.imageio.ImageIO
 import javax.swing._
-import java.awt.image._
-import basic.Basic._
 
 object Output {
   

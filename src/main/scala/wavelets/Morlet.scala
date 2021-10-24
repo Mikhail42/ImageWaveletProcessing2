@@ -1,7 +1,8 @@
 package wavelets
 
-import math._
 import basic.Basic._
+
+import scala.math._
 
 /** psi(x, y) = cos(x*k0x+y*k0y)*exp(-norm2(kx*x, y)) */
 class Morlet(k0x: T = -1, k0y: T = 3, eps: T = 8) extends ICWavelet {

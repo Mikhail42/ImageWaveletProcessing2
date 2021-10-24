@@ -1,9 +1,7 @@
 package accentuation
 
-import math._
 import basic.Basic._
 import image._
-import basic.Constants._
 
 object Vessel {
   
@@ -86,7 +84,6 @@ object Vessel {
   }
   
   def maxSearch(i: Int, j: Int, locMask: Int => Int): (Int, Int) = {
-    import image.Analys._
     var mx = Int.MinValue
     var dir = 0
     for (theta <- 0 until 180 by stepTheta) {
@@ -100,7 +97,6 @@ object Vessel {
   }
   
   def minSearch(i: Int, j: Int, locMask: Int => Int): (Int, Int) = {
-    import image.Analys._
     var mn = Int.MaxValue
     var dir = 0
     for (theta <- 0 until 180 by stepTheta) {

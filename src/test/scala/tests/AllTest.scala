@@ -1,11 +1,11 @@
 package tests
 
-import basic.Integral
 import basic.Basic._
+import basic.Integral
 import org.junit.runner.RunWith
 import org.scalatestplus.junit.JUnitRunner
 
-import math._
+import scala.math._
 
 @RunWith(classOf[JUnitRunner])
 object AllTest {
@@ -32,8 +32,8 @@ object AllTest {
   }
     
   def mathToolKitTests(): Unit = {
-    import basic.Statistic._
     import basic.Decompose._
+    import basic.Statistic._
     val mat1: M = Array(Array(1, 2), Array(3, 4))
     assert{ abs(aver(mat1)-2.5) < 1e-10} 
     val mat2: M = Array(Array(2, 2), Array(3, 4))

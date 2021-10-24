@@ -1,9 +1,8 @@
 package transform
 
-import wavelets._
 import basic.Basic._
 import image._
-import math._
+import wavelets._
 
 class CTransform(wavelet: ICWavelet, dx: Int = 4, dy: Int = 4) {
   

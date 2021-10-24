@@ -1,7 +1,8 @@
 package preprocessing
 
 import basic.Basic._
-import math._
+
+import scala.math._
 
 object Filtr {
   

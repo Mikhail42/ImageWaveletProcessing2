@@ -1,6 +1,6 @@
 package basic
 
-import math._
+import scala.math._
 
 object Constants {
   val thetas = (0.0 until 360.0 by 1.0)

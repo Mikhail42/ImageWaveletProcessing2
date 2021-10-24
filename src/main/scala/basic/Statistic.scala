@@ -1,6 +1,5 @@
 package basic
 
-import math._
 import basic.Basic._
 
 object Statistic {

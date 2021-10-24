@@ -1,7 +1,7 @@
 package basic
-import math._
-import Basic._
-import basic.Constants._
+import basic.Basic._
+
+import scala.math._
 
 object MatrixRotate {
             

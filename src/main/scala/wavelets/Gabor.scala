@@ -1,7 +1,8 @@
 package wavelets
 
-import math._
 import basic.Basic._
+
+import scala.math._
 
 class Gabor(sigma: T = 7) extends ICWavelet {
   override val wavename = "Gabor"

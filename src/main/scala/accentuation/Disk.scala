@@ -2,7 +2,8 @@ package accentuation
 
 import basic.Basic._
 import image._
-import math._
+
+import scala.math._
 
 object Disk {
   

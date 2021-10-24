@@ -1,6 +1,5 @@
 package transform
 
-import math._
 import basic.Basic._
 import image.Input._
 import image._

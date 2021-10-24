@@ -1,8 +1,6 @@
 package basic
 
-import math._
-import Basic._
-import basic.Constants._
+import basic.Basic._
 
 object MatrixUpdate {
     

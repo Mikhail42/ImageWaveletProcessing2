@@ -1,9 +1,9 @@
 package image
 
 import basic.Basic._
-import math._
-import java.awt.image._
 import basic.Constants._
+
+import scala.math._
 
 object Analys {
   val white = 20

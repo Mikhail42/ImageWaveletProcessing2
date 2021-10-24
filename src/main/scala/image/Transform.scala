@@ -1,7 +1,6 @@
 package image
 
 import basic.Basic._
-import image._
 
 object Transform {
   
@@ -19,8 +18,8 @@ object Transform {
    * @param ord -- order of Daubechies
    */
   def DaubechiesForwardImageWithRotate(img: BI, ord: Int = 1): (BI, BI) = {
-    import transform.DTransform._
     import image.Operation._
+    import transform.DTransform._
     val m = img.getHeight; val n = img.getWidth
     val resTr = createMInt(m, n)
     val resTheta = createMInt(m, n)

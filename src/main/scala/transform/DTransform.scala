@@ -1,13 +1,6 @@
 package transform
 
-import java.awt.color._
-import java.awt.image.ColorConvertOp
-import java.awt.image.BufferedImage
-import math._
-import scala.collection.mutable.ArraySeq
-import scala.collection.immutable.IndexedSeq
 import basic.Basic._
-import image._
 
 object DTransform  {
   

@@ -2,8 +2,8 @@ package accentuation
 
 import basic.Basic._
 import image._
-import math._
-import basic.Constants._
+
+import scala.math._
 
 /** to accentuation line */
 object Line {
