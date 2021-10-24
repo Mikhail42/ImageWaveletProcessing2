@@ -3,27 +3,22 @@ package tests
 import basic.Basic._
 import image.Output._
 import image.Transform._
-import org.junit.runner.RunWith
-import org.scalatestplus.junit.JUnitRunner
 
 import scala.math._
 
-@RunWith(classOf[JUnitRunner])
-object DWTTest {
+object DWTTest extends App {
 
   val dir = "./src/main/resources/"
 
-  def assertEquals(x: T, y: T, eps: T): Unit =
+  private def assertEquals(x: T, y: T, eps: T): Unit =
     assert {
       abs(x - y) < eps
     }
 
-  def dwtTests(): Unit = {
-    Daubechies1DTest()
-    Daubechies2DTest()
-    DaubechiesFullImageTest()
-    DaubechiesForwardImageTest()
-  }
+  Daubechies1DTest()
+  Daubechies2DTest()
+  DaubechiesFullImageTest()
+  DaubechiesForwardImageTest()
 
   def Daubechies1DTest(): Unit = {
     val n = 250

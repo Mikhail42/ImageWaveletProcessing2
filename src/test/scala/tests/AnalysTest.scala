@@ -1,21 +1,19 @@
 package tests
 
 import image._
-import org.junit.runner.RunWith
-import org.scalatestplus.junit.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
-object AnalysTest {
+object AnalysTest extends App {
   val dir = "./src/main/resources/" //Documents/Диплом/Интернет/Базы изображений/PIC/Новая папка/"
-  val time: Long = System.nanoTime()
+  val time: Long = System.currentTimeMillis()
 
-  def printlnTime(s: String): Unit = {
-    println(s + " " + (System.nanoTime() - time) / 1e6.toInt + " ms")
-  }
+  vesselSegmentTest()
+
+  def printlnTime(s: String): Unit =
+    println(s + " " + (System.currentTimeMillis() - time) / 1e3.toInt + " ms")
 
   /** vessels accentuation test (0 until 180 by 10 degree) */
   def vesselSegmentTest(): Unit = {
-    val fileName = dir + "2.jpg"
+    val fileName = dir + "images/02_dr.JPG"
     val img = image.Operation.scale(Input.getImage(fileName), 1)
     printlnTime("scale succesful")
     val invImg = preprocessing.Filtr.fullInverse(img)
@@ -53,7 +51,7 @@ object AnalysTest {
           i -= 1
         }
         val bin = Operation.toBinary(out, i)
-        printlnTime("toBinary succesful")
+        printlnTime("toBinary successful")
         Output.visible(bin, "outF")
       } catch {
         case e: Exception => {}

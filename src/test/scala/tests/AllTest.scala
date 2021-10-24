@@ -2,23 +2,18 @@ package tests
 
 import basic.Basic._
 import basic.Integral
-import org.junit.runner.RunWith
-import org.scalatestplus.junit.JUnitRunner
 
 import scala.math._
 
-@RunWith(classOf[JUnitRunner])
-object AllTest {
-  def assertEquals(x: T, y: T, eps: T): Unit =
+object AllTest extends App {
+  private def assertEquals(x: T, y: T, eps: T): Unit =
     assert {
       abs(x - y) < eps
     }
 
-  def mathTest(): Unit = {
-    integralTests()
-    mathToolKitTests()
-    constantTest()
-  }
+  integralTests()
+  mathToolKitTests()
+  constantTest()
 
   def constantTest(): Unit = {
     assertEquals(basic.Constants.sins(30), 0.5, 1e-6)
@@ -60,5 +55,4 @@ object AllTest {
       decompose(3, 1).equals(List(1, 1, 1))
     }
   }
-
 }

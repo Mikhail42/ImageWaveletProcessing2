@@ -2,11 +2,8 @@ package tests
 
 import basic.Basic._
 import image._
-import org.junit.runner.RunWith
-import org.scalatestplus.junit.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
-object ImageTest {
+object ImageTest extends App {
   // basic directory of images
   val dir = "./src/main/resources/"
 
