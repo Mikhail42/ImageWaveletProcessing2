@@ -6,7 +6,7 @@ import scala.math._
 
 object Generate {
 
-  val dir = "/home/misha/"
+  val dir = "./src/main/resources/"
 
   /** generate simple image for wavelet test
    *

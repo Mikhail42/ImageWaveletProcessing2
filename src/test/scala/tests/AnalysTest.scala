@@ -6,7 +6,7 @@ import org.scalatestplus.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 object AnalysTest {
-  val dir = "/home/misha/" //Documents/Диплом/Интернет/Базы изображений/PIC/Новая папка/"
+  val dir = "./src/main/resources/" //Documents/Диплом/Интернет/Базы изображений/PIC/Новая папка/"
   val time: Long = System.nanoTime()
 
   def printlnTime(s: String): Unit = {

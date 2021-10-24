@@ -8,12 +8,10 @@ import org.scalatestplus.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 object ImageTest {
   // basic directory of images
-  val dir = "/home/misha/"
-
-  def imp = {}
+  val dir = "./src/main/resources/"
 
   /** test on the allocation of the field direction */
-  def directionTest: Unit = {
+  def directionTest(): Unit = {
     val name = dir + "126.jpg"
     val img = Input.getImage(name)
     val direct: BI = Analys.direction(img)
@@ -22,18 +20,18 @@ object ImageTest {
 
   /** test load, scale and visible .tif image */
   def imageTifTest(): Unit = {
-    val name = dir + "01_g.tif"
+    val name = dir + "manual1/01_g.tif"
     val img: BI = Input.getTifImage(name)
     val resImg = Operation.scale(img, 1000.0 / img.getWidth)
     Output.visible(resImg, "Test load a tif image")
   }
 
   /** compare two gray images. 2th image is ideal, 1th -- is my result */
-  def compareTest {
+  def compareTest(): Unit = {
     val imgWT = Input.getImage(dir + "02_dr_out.jpg")
     val resWt = Operation.toBinary(imgWT)
 
-    val imgTif: BI = Input.getTifImage(dir + "02_dr.tif")
+    val imgTif: BI = Input.getTifImage(dir + "manual1/02_dr.tif")
 
     val resCompare = Analys.compareBinaryImages(resWt, imgTif)
     println(s"Compare Image Test: result = $resCompare")
@@ -41,13 +39,13 @@ object ImageTest {
 
   /** img <- img & mask */
   def maskTest(): Unit = {
-    val inpName = dir + "01_g_full.jpg"
+    val inpName = dir + "images/01_g.jpg"
     val img = Input.getImage(inpName)
 
-    val inpNameMask = dir + "01_g_mask_full.jpg"
+    val inpNameMask = dir + "mask/01_g_mask.jpg"
     val tif: BI = Input.getImage(inpNameMask)
     val tifScala: BI = Operation.scale(tif, 600.0 / tif.getWidth)
-    Output.saveImage(tifScala, dir + "g_mask.jpg", "jpg")
+    Output.saveImage(tifScala, dir + "01_g_mask.jpg", "jpg")
     val mask = Input.getImage(inpNameMask)
 
     val colComps = Input.getColorsComponents(img, 0.0, 0.3, 0.7).map(_.map(255 - _))

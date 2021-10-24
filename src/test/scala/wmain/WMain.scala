@@ -8,11 +8,10 @@ object WMain {
       val t1 = System.nanoTime()
       println("Elapsed time: " + (t1 - t0) / 1000000 + "ms")
     }
-    //val res = preprocessing.DilateErose.dilateErose(image.Input.getImage("/home/misha/6-1-5.jpg"))
+    //val res = preprocessing.DilateErose.dilateErose(image.Input.getImage("./src/main/resources/6-1-5.jpg"))
     //image.Output.visible(res, "tit")
     time {
       tests.AnalysTest.vesselSegmentTest()
     }
-
   }
 }

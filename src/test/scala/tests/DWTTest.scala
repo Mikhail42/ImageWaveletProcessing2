@@ -11,7 +11,7 @@ import scala.math._
 @RunWith(classOf[JUnitRunner])
 object DWTTest {
 
-  val dir = "/home/misha/"
+  val dir = "./src/main/resources/"
 
   def assertEquals(x: T, y: T, eps: T): Unit =
     assert {
